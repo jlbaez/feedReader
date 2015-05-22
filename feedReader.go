@@ -21,7 +21,7 @@ type EpisodeXML struct {
 }
 
 type Itunes struct {
-	Duration string `xml:",chardata"`
+	Duration string `xml:",chardata" json:"duration"`
 }
 
 func GetEpisodesfromFeed(feedUrl string) ([]EpisodeXML, error) {
