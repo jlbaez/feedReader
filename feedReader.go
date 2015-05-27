@@ -12,16 +12,31 @@ type FeedXML struct {
 }
 
 type EpisodeXML struct {
-	Content string `xml:"content" json:"content"`
 	Date string `xml:"pubDate" json:"date"`
 	Description string `xml:"description" json:"description"`
 	Itunes Itunes `xml:"duration" json:"info"`
 	Link string `xml:"link" json:"link"`
 	Title string `xml:"title" json:"title"`
+	Content string `xml"enclosure url,attr" json:"content"`
+	Enclosure Enclosure `xml:"enclosure" json:"enclosure"`
+	Dc Dc `xml:"creator" json:"author"`
+}
+
+type Enclosure struct {
+	Content string `xml:"url,attr" json:"url`
+	Type string `xml:"type,attr" json:"type"`
 }
 
 type Itunes struct {
 	Duration string `xml:",chardata" json:"duration"`
+}
+
+type Media struct {
+	Thumbnail string `xml:"thumbnail,attr" json:"thumbnail"`
+}
+
+type Dc struct {
+	Creator string `xml:",chardata" json:"name"`
 }
 
 func GetEpisodesfromFeed(feedUrl string) ([]EpisodeXML, error) {
