@@ -23,7 +23,7 @@ type EpisodeXML struct {
 }
 
 type Enclosure struct {
-	Content string `xml:"url,attr" json:"url`
+	Content string `xml:"url,attr" json:"url"`
 	Type string `xml:"type,attr" json:"type"`
 }
 
